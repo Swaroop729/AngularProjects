@@ -1,1 +1,18 @@
-Custom Directive and Session Storage Project
+<div>
+  Custom Directive and Session Storage Project
+</div>
+<br>
+<div>
+  <form [formGroup]="formGroup">
+    <input formControlName="name">
+    <br>
+    <br>
+    <!-- While sending multiple parameters you can send it in one go for a structural Directive
+    and it can't be done for normal directives
+    like *StructuralDirectiveName="Input1;InputParameterName2:Input2" -->
+    <div *checkAuthorizationOfForm="formGroup">
+      <button>Save</button>
+      <button>Edit</button>
+    </div>
+  </form>
+</div>
