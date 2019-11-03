@@ -1,3 +1,18 @@
+Refer to this video for more information
+https://www.youtube.com/watch?v=0KWQLFI8mFE&t=1036s
+
+Order of the exectuion of the hooks
+
+1) ngOnChanges
+2) ngOnInit
+3) ngDoCheck
+4) ngAfterContentInit
+5) ngAfterContentChecked
+6) ngAfterViewInit
+7) ngAfterViewChecked
+8) ngOnDestroy
+
+
 1)ngOnChanges is called before the ngOnInit whenever the chages are sent through Input variable from the 
 Parent comp to child Comp
 
@@ -9,3 +24,20 @@ it will show less than n variables in the Simple Changes object.
 ngOnChanges detects the changes when inputs are passed by Value
 ngDoCheck detects the changes when inputs are passed by Reference
 
+// Note whenever the Init is in the hook it is called only once
+
+4)ngAfterContentInit is called only once while intilazing the component . It's basic use it to 
+intialize the variables in the ngOnInit and to call the functions which needs to be executed after 
+intilazing of all the varaibles and the function to be executed after that and that too only once.
+
+5) ngAfterContentChecked is the DoCheck version for OnInit as the Docheck occurs mutliple times while the
+OnInit occurs only one while Intilazation this is also similar to it as the ngAfterContentInit occurs
+only once in order to neutral that the angular team has introduced this ngAfterContentChecked hook
+which occurs every time for a change
+
+6) ngAfterViewInit occurs only once
+
+7) ngAfterViewChecked occurs for all the changes opposite to ngAfterViewInit
+
+8) There has been a example in the code to show how the subscriptions and data related to a 
+component is destroyed in this method while removing some element from the DOM

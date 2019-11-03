@@ -3,7 +3,7 @@
 
 <!-- Always the property binding value is in string only never seen in the oridinary value even as 
 a template variable need to look into it once -->
-<child [numberinChild]="number" [name]="name" [Obj]="userDetailsObj"></child>
+<child *ngIf="isVisibility" [numberinChild]="number" [name]="name" [Obj]="userDetailsObj"></child>
 
 <button (click)="Increment()">Increment</button>
 <button (click)="Decrement()">Decrement</button>
@@ -16,3 +16,6 @@ a template variable need to look into it once -->
 {{userDetailsObj|json}}
 <br>
 <a (click)="updateObj()" style="cursor: pointer">Update Name in the Object (Passing By Reference)</a>
+<br>
+<button (click)="Visibility()">Show/Hide</button>
+<br>

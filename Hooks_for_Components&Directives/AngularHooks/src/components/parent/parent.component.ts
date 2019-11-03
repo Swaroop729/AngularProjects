@@ -69,4 +69,8 @@ export class ParentComponent implements OnInit, OnChanges {
   updateObj() {
     this.userDetailsObj.Username = 'changing to Child name';
   }
+  isVisibility = true;
+  Visibility() {
+    this.isVisibility = !this.isVisibility;
+  }
 }

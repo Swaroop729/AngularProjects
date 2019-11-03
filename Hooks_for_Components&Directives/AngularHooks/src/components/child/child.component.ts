@@ -7,14 +7,13 @@ import {
   OnChanges
 } from '@angular/core';
 
+// tslint:disable-next-line: no-conflicting-lifecycle
 @Component({
   selector: 'child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit, OnChanges {
-  // Private variable so it can be accessible by the class
-  private childnum: number;
   // Using the Set Accessor for the input variable observe how it is used and how it is called
   // in the Parent Comp html
   @Input() set numberinChild(value: number) {
@@ -25,14 +24,18 @@ export class ChildComponent implements OnInit, OnChanges {
     return this.childnum;
   }
 
+  constructor() {}
+  // Private variable so it can be accessible by the class
+  private childnum: number;
+
   // Here when two inputs are passed when the child comp is rendering for first then we can
   // see two objects in the simplechanges object
   @Input() name: string;
 
   @Input() Obj: any;
+  isVisible = true;
 
   ngOnChanges(changes: SimpleChanges): void {
-    debugger;
     // The Simple Changes varibles is like json having the
     // currentValue , firstChange(boolean), previousValue in it
     // if this the first time change then firstChange is true and
@@ -48,15 +51,16 @@ export class ChildComponent implements OnInit, OnChanges {
     // this.numberinChild = changevariable.currentValue;
   }
 
-  constructor() {}
-
   ngOnInit() {
     console.log('Coming into Child OnInit');
   }
   ngDoCheck(changes: SimpleChanges) {
-    debugger;
     console.log(
       'Coming into Docheck some variable has been changed by reference'
     );
+  }
+
+  ngOnDestroy() {
+    console.log('coming into ngOnDestroy method');
   }
 }
