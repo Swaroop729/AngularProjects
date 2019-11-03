@@ -1,0 +1,18 @@
+<p>parent works!</p>
+<div>Value in Parent : {{number}}</div>
+
+<!-- Always the property binding value is in string only never seen in the oridinary value even as 
+a template variable need to look into it once -->
+<child [numberinChild]="number" [name]="name" [Obj]="userDetailsObj"></child>
+
+<button (click)="Increment()">Increment</button>
+<button (click)="Decrement()">Decrement</button>
+<br>
+<div>
+  {{name}}
+</div>
+<a (click)="updateName()" style="cursor: pointer">Update Name (Passing By Value)</a>
+<br>
+{{userDetailsObj|json}}
+<br>
+<a (click)="updateObj()" style="cursor: pointer">Update Name in the Object (Passing By Reference)</a>

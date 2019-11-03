@@ -1,0 +1,11 @@
+1)ngOnChanges is called before the ngOnInit whenever the chages are sent through Input variable from the 
+Parent comp to child Comp
+
+2) Even if there are n variable changed at the first time it will all show in the ngOnchanges but when
+we need to remember it will show only the changed varaibles if it is less than n the second then 
+it will show less than n variables in the Simple Changes object.
+
+3)There is a difference between the ngOnChanges and ngDoCheck 
+ngOnChanges detects the changes when inputs are passed by Value
+ngDoCheck detects the changes when inputs are passed by Reference
+
