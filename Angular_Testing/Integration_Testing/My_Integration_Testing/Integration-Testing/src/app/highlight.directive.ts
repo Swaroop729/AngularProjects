@@ -1,16 +1,17 @@
-// import { Directive, Input, ElementRef, OnChanges } from '@angular/core';
+import { Directive, Input, ElementRef, OnChanges } from '@angular/core';
 
-// @Directive({
-//   selector: '[highlight]'
-// })
-// export class HighlightDirective implements OnChanges {
-//   defaultColor =  'yellow'; 
-//   @Input('highlight') bgColor: string;
+@Directive({
+  selector: '[highlight]'
+})
+export class HighlightDirective implements OnChanges {
+  defaultColor =  'yellow'; 
+  @Input('highlight')
+    bgColor!: string;
 
-//   constructor(private el: ElementRef) {
-//   }
+  constructor(private el: ElementRef) {
+  }
 
-//   ngOnChanges() {
-//     this.el.nativeElement.style.backgroundColor = this.bgColor || this.defaultColor;
-//   }
-// }
+  ngOnChanges() {
+    this.el.nativeElement.style.backgroundColor = this.bgColor || this.defaultColor;
+  }
+}
